@@ -1,6 +1,6 @@
 package com.supermarket.tests;
 
-import javax.xml.xpath.XPath;
+
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -22,8 +22,8 @@ public class ManageUsersTest extends Base {
 		 
 		 manageuserspage=new  ManageUsersPage(driver);
 		 manageuserspage.click_ManageUsersLink();
-		 manageuserspage.deactivate_User("Subina S");
-		 	
+		 manageuserspage.deactivate_User("lex rex");
+		 manageuserspage.unLock_Enabled();
 		 
    }
 }

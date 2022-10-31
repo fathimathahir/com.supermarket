@@ -3,7 +3,7 @@ package com.supermarkets.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.xpath.XPath;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +21,8 @@ public class ManageUsersPage {
 
 	@FindBy(xpath = "//li[@class='nav-item']//a[@href='https://groceryapp.uniqassosiates.com/admin/list-user']")
 	private WebElement manageUser;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/users/status?id=257&st=inactive&page_ad=1']")
+	private WebElement unLockOption;
 
 	public ManageUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -49,6 +51,11 @@ public class ManageUsersPage {
 
 		WebElement deactivateButton = driver.findElement(By.xpath("//tbody//tr[" + j + "]//td[5]//a"));
 		deactivateButton.click();
+	}
+	public boolean unLock_Enabled()
+	{
+		GeneralUtility generalutility = new GeneralUtility(driver);
+		return generalutility.is_Enabled(unLockOption);
 	}
 
 }
