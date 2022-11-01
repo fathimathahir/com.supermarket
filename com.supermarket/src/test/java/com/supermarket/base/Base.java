@@ -65,7 +65,7 @@ public void initialize(String browser, String url) {
 		url=prop.getProperty("url");
 		initialize(browser,url);
 	}
-    @BeforeMethod(enabled=true)
+    @BeforeMethod(enabled=true,alwaysRun = true)
 	public void setUp() {
 		String browser;
 		String  url;
@@ -74,10 +74,10 @@ public void initialize(String browser, String url) {
 		initialize(browser,url);
 	}
     
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult itestresult)//inbuild testcasename and screenshotname same
 	{
-		driver.close();
+	
 		screenshot=new ScreenShot();
 		if(itestresult.getStatus()==ITestResult.FAILURE)
 		{
@@ -86,6 +86,7 @@ public void initialize(String browser, String url) {
 		screenshot.take_ScreenShot(driver,testcaseName);
 		
 		}
+		driver.close();
 	}
 
 }

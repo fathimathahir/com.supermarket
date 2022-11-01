@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.supermarket.utilities.GeneralUtility;
 import com.supermarket.utilities.PageUtility;
+import com.supermarket.utilities.WaitUtility;
 
 public class ManageContentPage {
 	WebDriver driver;
@@ -27,6 +28,24 @@ public class ManageContentPage {
 	private WebElement UpLoadimage;
 	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement saveOption;
+	@FindBy(xpath = "//li[@class='nav-item']//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext']")
+	private WebElement ManageFooterPage;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=2']")
+	private WebElement UpDateLink;
+	@FindBy(xpath = "//button[@name='Update']")
+	private WebElement UpDateButton;
+	@FindBy(xpath = "//div[@class= 'alert alert-success alert-dismissible']")
+	private WebElement UpDatesucessmessage;
+	@FindBy(xpath = "//a[@class= 'btn btn-default btn-fix']")
+	private WebElement ResetOption;
+	@FindBy(xpath = "//li[@class='nav-item']//a[@href= 'https://groceryapp.uniqassosiates.com/admin/list-news']")
+	private WebElement ManageNewsLink;
+	@FindBy(xpath = "//a[@href= 'https://groceryapp.uniqassosiates.com/admin/news/add']")
+	private WebElement NewOption;
+	@FindBy(xpath = "//textarea[@id= 'news']")
+	private WebElement NewsTitle;
+	@FindBy(xpath = "//button[@class= 'btn btn-danger']")
+	private WebElement NewsSaveOption;
 
 	public ManageContentPage(WebDriver driver) {
 
@@ -64,7 +83,47 @@ public class ManageContentPage {
 	}
 
 	public void clickOn_SaveOption() {
+		WaitUtility waitutility = new WaitUtility(driver);
+		waitutility.element_ToBeClickable(10, "//button[text()='Save']");
 		saveOption.click();
 	}
 
+	public void clickOn_ManageFooterPage() {
+		ManageFooterPage.click();
+	}
+
+	public void clickOn_UpDateLink() {
+		UpDateLink.click();
+	}
+
+	public void clickOn_UpDateButton() {
+		UpDateButton.click();
+	}
+
+	public String get_BackGroundColorForSucessUpdateAlert() {
+		GeneralUtility generalutility = new GeneralUtility(driver);
+		return generalutility.get_CssValue(UpDatesucessmessage, "background-color");
+
+	}
+
+	public void clickOn_ResetButton() {
+		ResetOption.click();
+	}
+
+	public void clickOn_ManageNewsPage() {
+		ManageNewsLink.click();
+	}
+
+	public void clickOn_NewNewsOption() {
+		NewOption.click();
+	}
+
+	public void clickOn_NewsSaveOption() {
+		NewsSaveOption.click();
+	}
+
+	public boolean saveButton_Enabled() {
+		GeneralUtility generalutility = new GeneralUtility(driver);
+		return generalutility.is_Enabled(NewsSaveOption);
+	}
 }

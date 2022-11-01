@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [groupsrun]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="buildverification(failed)">
+    <groups>
+      <run>
+        <include name="sanity"/>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.supermarket.tests.ManageContentTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="verify_UpDateOptionForManageFooterPage"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.supermarket.tests.ManageContentTest -->
+      <class name="com.supermarket.tests.LogInTest">
+        <methods>
+          <include name="verify_LogIn"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.supermarket.tests.LogInTest -->
+    </classes>
+  </test> <!-- buildverification(failed) -->
+</suite> <!-- Failed suite [groupsrun] -->

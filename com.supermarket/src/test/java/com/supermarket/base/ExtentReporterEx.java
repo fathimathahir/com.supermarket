@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
 import org.testng.IResultMap;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -20,12 +21,12 @@ import com.relevantcodes.extentreports.LogStatus;
 import com.supermarket.constants.Constants;
 
 
-	public abstract class ExtentReporter implements IReporter
+	public abstract class ExtentReporterEx implements IReporter
 	{
 		private ExtentReports extent;
 
 		public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-			extent = new ExtentReports(Constants.EXTENT_REPORT_PATH + File.separator + "ExtentReport.html", true);
+			extent = new ExtentReports( File.separator + "ExtentReport.html", true);
 
 			for (ISuite suite : suites) {
 				Map<String, ISuiteResult> result = suite.getResults();

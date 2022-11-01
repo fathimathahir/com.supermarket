@@ -19,7 +19,7 @@ import dev.failsafe.internal.util.Assert;
 public class LogInTest extends Base {
 	LogInPage loginPage;
 
-	@Test
+	@Test(groups = "smoke")
 	public void verify_LogIn() {
 		LogInPage loginPage = new LogInPage(driver);
 		loginPage.logIn();
@@ -40,7 +40,7 @@ public class LogInTest extends Base {
 		assertEquals(actualtext, expectedtext, "This is testcase failed");
 	}
 
-	@Test
+	@Test(groups = "sanity")
 	public void Verify_RememberMeCheckBox() {
 		LogInPage loginPage = new LogInPage(driver);
 

@@ -11,5 +11,12 @@ public class DataProviderSuperMarket {
 			
 		
 	 }
+	@DataProvider (name="addnews")
+	 public Object[] [] managenews()
+	 {
+		return new Object [][] {{"Happy customer"},{"Stock Clearance"},{"Wishlist Items"}};
+			
+		
+	 }
 
 }
